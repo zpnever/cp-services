@@ -142,6 +142,9 @@ export const handleSubmissionProblem = async (payload: SubmissionPayload) => {
 		status: "success",
 	});
 
+	executionTime = Number((executionTime / testCases.length).toFixed(5));
+	memoryUsage = Math.floor(memoryUsage / testCases.length);
+
 	const submissionProblem = await db.submissionProblem.findFirst({
 		where: {
 			teamId,

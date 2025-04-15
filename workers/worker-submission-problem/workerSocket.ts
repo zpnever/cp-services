@@ -1,7 +1,11 @@
 import { io } from "socket.io-client";
 
 // Create a single, persistent worker socket client
-const workerSocket = io("http://localhost:3001", {
+// const workerSocket = io("http://localhost:3001", {
+// 	reconnection: true,
+// 	reconnectionAttempts: Infinity,
+// });
+const workerSocket = io("http://103.87.66.7:3001", {
 	reconnection: true,
 	reconnectionAttempts: Infinity,
 });
