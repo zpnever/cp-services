@@ -43,33 +43,6 @@ io.on("connection", (socket) => {
 		io.to(roomId).emit("submission-result", { roomId, status });
 	});
 
-	// // Join team room
-	// socket.on("join-team-room", ({ teamId, contestId }) => {
-	// 	const roomId = `${teamId}:${contestId}`;
-	// 	socket.join(roomId);
-	// 	activeRooms.add(roomId);
-	// 	console.log(`Team ${teamId} joined room ${roomId}`);
-	// 	console.log(`Active rooms: ${Array.from(activeRooms)}`);
-
-	// 	// Send confirmation back
-	// 	socket.emit("team-room-joined", { roomId });
-	// });
-
-	// // Locked Problem
-	// socket.on(
-	// 	"locked-problem-update",
-	// 	({ teamId, contestId, lockedProblems }) => {
-	// 		const roomId = `${teamId}:${contestId}`;
-	// 		io.to(roomId).emit("locked-problem-update", { lockedProblems });
-	// 	}
-	// );
-
-	// // Finish
-	// socket.on("finish-status-update", ({ teamId, contestId, finishedUsers }) => {
-	// 	const roomId = `${teamId}:${contestId}`;
-	// 	io.to(roomId).emit("finish-status-update", { finishedUsers });
-	// });
-
 	socket.on("disconnect", () => {
 		console.log(`Socket disconnected: ${socket.id}`);
 	});
