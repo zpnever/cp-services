@@ -1,9 +1,11 @@
 import { io } from "socket.io-client";
 import "dotenv/config"
 
-const workerSocket = io(process.env.SOCKET_URL || "wss://inacomp.site/ws", {
+const workerSocket = io(process.env.SOCKET_URL || "wss://inacomp.site", {
+	path: "/ws",
 	reconnection: true,
 	reconnectionAttempts: Infinity,
+	transports: ["websocket"],
 });
 
 workerSocket.on("connect", () => {
