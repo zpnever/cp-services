@@ -12,7 +12,7 @@ const io = new Server(server, {
 	},
 });
 
-const PORT = 3001;
+const PORT = 41234;
 
 // Track active rooms for debugging
 const activeRooms = new Set();

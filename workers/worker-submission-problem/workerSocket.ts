@@ -1,6 +1,6 @@
 import { io } from "socket.io-client";
 
-const workerSocket = io("wss://inacomp.site/ws", {
+const workerSocket = io("http://inacomp.site:41234", {
 	reconnection: true,
 	reconnectionAttempts: Infinity,
 });
