@@ -249,7 +249,6 @@ ${userCode}
 echo ${functionName}(${formattedArgs});
 ?>`;
         case "11": // C++
-            // For arrays, we need to handle the output format specifically
             return `
 #include <iostream>
 #include <vector>
@@ -257,6 +256,21 @@ echo ${functionName}(${formattedArgs});
 #include <sstream>
 #include <array>
 #include <type_traits>
+#include <algorithm>  // untuk std::max, sort, dll
+#include <cmath>      // untuk operasi matematika
+#include <map>        // untuk std::map
+#include <set>        // untuk std::set
+#include <unordered_map> // untuk hash map
+#include <unordered_set> // untuk hash set
+#include <queue>      // untuk queue dan priority_queue
+#include <stack>      // untuk stack
+#include <deque>      // untuk deque
+#include <list>       // untuk linked list
+#include <numeric>    // untuk accumulate, iota dll
+#include <functional> // untuk fungsi lambda dan std::function
+#include <utility>    // untuk std::pair, std::make_pair
+#include <bitset>     // untuk operasi bit
+#include <iomanip>    // untuk manipulasi output
 using namespace std;
 
 ${userCode}
