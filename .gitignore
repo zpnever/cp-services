@@ -1,0 +1,4 @@
+# Tambahkan baris ini ke file .gitignore
+node_modules/
+*/node_modules/
+**/node_modules/
