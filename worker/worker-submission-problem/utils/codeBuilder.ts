@@ -369,7 +369,7 @@ ${userCode}
             String[] array = (String[])arr;
             StringBuilder sb = new StringBuilder("[");
             for (int i = 0; i < array.length; i++) {
-                sb.append("\"").append(array[i]).append("\"");
+                sb.append("\\\"").append(array[i]).append("\\\"");
                 if (i < array.length - 1) sb.append(",");
             }
             sb.append("]");

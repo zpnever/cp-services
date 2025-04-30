@@ -66,6 +66,8 @@ export const handleSubmissionProblem = async (payload: SubmissionPayload) => {
 				languageId
 			);
 
+			console.log(finalCode);
+
 			const token = await sendToJudge0(finalCode, languageId);
 			const result: any = await waitForResult(token);
 

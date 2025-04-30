@@ -11,7 +11,7 @@ const io = new Server(server, {
 		origin: "*",
 		methods: ["GET", "POST"],
 	},
-	// path: "/ws/", // path untuk nginx
+	path: "/ws/", // path untuk nginx
 });
 
 const PORT = 41234;
