@@ -26,6 +26,7 @@ export const codeBuilder = (
 
 	// Format individual argument based on type and target language
 	const formatArgument = (arg: any, languageId: string): string => {
+		// Helper function code remains unchanged...
 		// Handle null and undefined
 		if (arg === null) {
 			switch (languageId) {
@@ -250,19 +251,45 @@ export const codeBuilder = (
 	// Generate language-specific code with consistent output formatting
 	switch (languageId) {
 		case "15": // JavaScript
-			return `${userCode}
+			return `// JavaScript with modern features
+${userCode}
+
 console.log(${functionName}(${formattedArgs}));`;
+
 		case "19": // Python
-			return `${userCode}
+			return `# Python with common libraries
+import math
+import collections
+import itertools
+import heapq
+import re
+import functools
+import bisect
+from typing import List, Dict, Tuple, Set, Optional
+
+${userCode}
+
 print(${functionName}(${formattedArgs}))`;
+
 		case "22": // Ruby
-			return `${userCode}
+			return `# Ruby with common libraries
+require 'set'
+require 'json'
+require 'prime'
+require 'date'
+
+${userCode}
+
 puts ${functionName}(${formattedArgs})`;
+
 		case "18": // PHP
 			return `<?php
+// PHP with common functions available
 ${userCode}
+
 echo ${functionName}(${formattedArgs});
 ?>`;
+
 		case "11": // C++
 			return `
 #include <iostream>
@@ -270,22 +297,27 @@ echo ${functionName}(${formattedArgs});
 #include <string>
 #include <sstream>
 #include <array>
+#include <algorithm>
+#include <cmath>
+#include <map>
+#include <set>
+#include <unordered_map>
+#include <unordered_set>
+#include <queue>
+#include <stack>
+#include <deque>
+#include <list>
+#include <tuple>
+#include <numeric>
+#include <functional>
+#include <utility>
+#include <bitset>
+#include <iomanip>
+#include <climits>
+#include <cfloat>
+#include <random>
+#include <chrono>
 #include <type_traits>
-#include <algorithm>  // untuk std::max, sort, dll
-#include <cmath>      // untuk operasi matematika
-#include <map>        // untuk std::map
-#include <set>        // untuk std::set
-#include <unordered_map> // untuk hash map
-#include <unordered_set> // untuk hash set
-#include <queue>      // untuk queue dan priority_queue
-#include <stack>      // untuk stack
-#include <deque>      // untuk deque
-#include <list>       // untuk linked list
-#include <numeric>    // untuk accumulate, iota dll
-#include <functional> // untuk fungsi lambda dan std::function
-#include <utility>    // untuk std::pair, std::make_pair
-#include <bitset>     // untuk operasi bit
-#include <iomanip>    // untuk manipulasi output
 using namespace std;
 
 ${userCode}
@@ -350,8 +382,18 @@ int main() {
     return 0;
 }
 `.trim();
+
 		case "14": // Java
 			return `
+import java.util.*;
+import java.io.*;
+import java.math.*;
+import java.text.*;
+import java.time.*;
+import java.util.stream.*;
+import java.util.function.*;
+import java.util.regex.*;
+
 public class Main {
 ${userCode}
 
@@ -418,12 +460,18 @@ ${userCode}
         }
     }
 }`.trim();
+
 		case "1": // C
 			return `
 #include <stdio.h>
 #include <stdlib.h>
 #include <stdbool.h>
 #include <string.h>
+#include <math.h>
+#include <limits.h>
+#include <float.h>
+#include <ctype.h>
+#include <time.h>
 
 ${userCode}
 
@@ -465,8 +513,18 @@ int main() {
     printf("\\n");
     return 0;
 }`.trim();
+
 		case "23": // Rust
 			return `
+use std::collections::*;
+use std::cmp::{min, max, Ordering};
+use std::io::{self, Read, Write};
+use std::iter::*;
+use std::str::*;
+use std::vec::*;
+use std::fmt::{self, Display};
+use std::ops::*;
+
 ${userCode}
 
 fn print_array<T: std::fmt::Display>(arr: &[T]) {
@@ -503,6 +561,7 @@ fn main() {
     
     println!();
 }`.trim();
+
 		default:
 			return `${userCode}
 console.log(${functionName}(${formattedArgs}));`;
