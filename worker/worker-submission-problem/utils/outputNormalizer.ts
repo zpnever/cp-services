@@ -1,5 +1,3 @@
-// outputNormalizer.ts
-
 /**
  * Normalizes output from different programming languages to match expected output format
  */
@@ -28,6 +26,11 @@ export const normalizeOutput = (
 	// Normalize floats
 	if (!isNaN(parseFloat(expectedOutput)) && expectedOutput.includes(".")) {
 		return normalizeFloatOutput(output, expectedOutput, languageId);
+	}
+
+	// Normalize strings - strip quotes for Rust and other languages
+	if (output.startsWith('"') && output.endsWith('"')) {
+		output = output.substring(1, output.length - 1);
 	}
 
 	// Default case: return as is
@@ -81,6 +84,15 @@ const normalizeArrayOutput = (
 					);
 					return `[${values.join(",")}]`;
 				}
+				return "[]"; // Default when Array is printed without proper formatting
+			}
+			break;
+
+		case "22": // Ruby
+			// Handle line-break separated values (common in Ruby puts)
+			if (output.includes("\n")) {
+				const values = output.split(/\s*\n\s*/).filter(Boolean);
+				return `[${values.join(",")}]`;
 			}
 			break;
 	}

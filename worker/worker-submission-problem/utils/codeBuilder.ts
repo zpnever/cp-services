@@ -280,14 +280,30 @@ require 'date'
 
 ${userCode}
 
-puts ${functionName}(${formattedArgs})`;
+# Format the output based on return type
+result = ${functionName}(${formattedArgs})
+if result.is_a?(Array)
+  puts result.to_s
+elsif result.is_a?(Hash)
+  puts result.to_json
+else
+  puts result
+end`;
 
 		case "18": // PHP
 			return `<?php
 // PHP with common functions available
 ${userCode}
 
-echo ${functionName}(${formattedArgs});
+// Format the output based on return type
+$result = ${functionName}(${formattedArgs});
+if (is_array($result)) {
+    echo '[' . implode(', ', $result) . ']';
+} else if (is_bool($result)) {
+    echo $result ? 'true' : 'false';
+} else {
+    echo $result;
+}
 ?>`;
 
 		case "11": // C++
