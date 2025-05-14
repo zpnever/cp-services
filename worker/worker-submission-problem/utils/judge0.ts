@@ -1,6 +1,6 @@
 import "dotenv/config";
 
-const urlJudge0 = "http://103.87.66.7:2358";
+const urlJudge0 = "http://103.185.52.228:2358";
 
 export async function sendToJudge0(code: string, langId: string) {
 	const res = await fetch(
